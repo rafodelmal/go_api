@@ -28,7 +28,7 @@ func GetUserTwo(resp http.ResponseWriter, req *http.Request) {
 		return
 	}
 	log.Println("About to process user_id: ", userId)
-	user, apiErr := services.GetUser(userId)
+	user, apiErr := services.UserService.GetUser(userId)
 	if err != nil {
 		jsonValue, _ := json.Marshal(apiErr)
 		resp.WriteHeader(apiErr.StatusCode)
