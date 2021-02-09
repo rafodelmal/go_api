@@ -1,39 +1,21 @@
-on:
-  push:
-    branches:
-    - master
+on: 
+  push: 
+    branches: 
+    - master 
+    - staging
+    - develop 
+  pull_request: 
+    branches: 
+    - master 
+    - staging 
+    - develop
 name: Test build on push
 jobs:
-  go-test:
+  build:
     name: Test go configurations
     runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@master
-    - name: Test Go Modules Vendor
-      uses: ./
-      env:
-        IMPORT: cedrickring/golang-action
-        PROJECT_PATH: ./tests/projects/go_modules_vendored
-    - name: Test Go Modules
-      uses: ./
-      env:
-        IMPORT: cedrickring/golang-action
-        PROJECT_PATH: ./tests/projects/go_modules
-    - name: Test Go Standard
-      uses: ./
-      env:
-        IMPORT: cedrickring/golang-action
-        PROJECT_PATH: ./tests/projects/go_standard
-  test:
-    name: Run tests and build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: Install dockerfile_lint
-      run: sudo npm i -g dockerfile_lint
-    - name: Lint
-      run: make lint
-    - name: Test
-      run: make test
-    - name: Build
-      run: make build
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    
