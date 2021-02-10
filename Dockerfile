@@ -10,7 +10,7 @@ RUN go version
 
 ENV GOPATH /go
 
-COPY ./github.com/rafodelmal/go_api/mvc/app /go/src/app
+COPY ./mvc/app /go/src/app
 COPY ./github.com/rafodelmal/go_api/mvc/services /go/src/services
 COPY ./github.com/rafodelmal/go_api/mvc/utils /go/src/utils
 COPY ./github.com/stretchr/testify/assert /go/src/stretchr/testify/assert
