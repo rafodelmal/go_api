@@ -1,6 +1,6 @@
 package main
 
-import "/go/src/github.com/rafodelmal/go_api/mvc/app"
+import "app"
 
 func main() {
 	app.StartApp()
