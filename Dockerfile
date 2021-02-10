@@ -10,11 +10,11 @@ RUN go version
 
 ENV GOPATH /go
 
-COPY ./mvc/app /go/src/app
-COPY ./mvc/services /go/src/services
-COPY ./mvc/utils /go/src/utils
-COPY ./mvc/domain /go/src/domain
-COPY ./mvc/controllers /go/src/controllers
+COPY ./mvc/app /go/src/github.com/rafodelmal/go_api/mvc/app
+COPY ./mvc/services /go/src/github.com/rafodelmal/go_api/mvc/services
+COPY ./mvc/utils /go/src/github.com/rafodelmal/go_api/mvc/utils
+COPY ./mvc/domain /go/src/github.com/rafodelmal/go_api/mvc/domain
+COPY ./mvc/controllers /go/src/github.com/rafodelmal/go_api/mvc/controllers
 
 
 WORKDIR /
