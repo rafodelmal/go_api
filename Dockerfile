@@ -1,8 +1,8 @@
 FROM golang:latest
 
-LABEL maintainer="Anass Kartit"
+LABEL maintainer="Jose Rafael Arrieta"
 
-WORKDIR /app
+WORKDIR /
 
 COPY . .
 # We specify that we now wish to execute 
