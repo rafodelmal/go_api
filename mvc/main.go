@@ -1,12 +1,12 @@
-/*package main
+package main
 
 import "github.com/rafodelmal/go_api/mvc/app"
 
 func main() {
 	app.StartApp()
-}*/
+}
 
-package main
+/*package main
 
 import (
 	"fmt"
@@ -21,3 +21,4 @@ func main() {
 func HelloServer(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, World! 4")
 }
+*/
