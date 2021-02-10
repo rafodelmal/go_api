@@ -15,7 +15,6 @@ COPY ./mvc/services /go/src/services
 COPY ./mvc/utils /go/src/utils
 COPY ./mvc/domain /go/src/domain
 COPY ./mvc/controllers /go/src/controllers
-COPY ./github.com/stretchr/testify/assert /go/src/stretchr/testify/assert
 
 
 WORKDIR /
