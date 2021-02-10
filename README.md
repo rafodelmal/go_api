@@ -29,4 +29,4 @@ or
 
 `./file`
 
-Add Github Actions v2
+Add Github Actions v3
