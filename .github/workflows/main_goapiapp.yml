@@ -1,0 +1,35 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy container app to Azure Web App - goapiapp
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - uses: actions/checkout@master
+
+    - uses: azure/docker-login@v1
+      with:
+        login-server: https://commoncontainer.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_7ed08ce44b1946fcbb03173b6e0ad674 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_4f8ef9267c8f4322a8fe601d1e0c9e60 }}
+
+    - run: |
+        docker build . -t commoncontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7ed08ce44b1946fcbb03173b6e0ad674 }}/sampleapp:${{ github.sha }}
+        docker push commoncontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7ed08ce44b1946fcbb03173b6e0ad674 }}/sampleapp:${{ github.sha }}
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'goapiapp'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1d9ea226942149c3b610ba5c2c08baba }}
+        images: 'commoncontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7ed08ce44b1946fcbb03173b6e0ad674 }}/sampleapp:${{ github.sha }}'
