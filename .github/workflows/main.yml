@@ -1,12 +1,12 @@
 on: 
   push: 
     branches: 
-    - master 
+    - main 
     - staging
     - develop 
   pull_request: 
     branches: 
-    - master 
+    - main 
     - staging 
     - develop
 name: Build on push
