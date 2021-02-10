@@ -1,6 +1,7 @@
-FROM golang:latest
+FROM golang:alpine
 
 LABEL maintainer="Jose Rafael Arrieta"
+RUN go version
 
 WORKDIR /
 
