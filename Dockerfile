@@ -11,7 +11,7 @@ COPY . .
 
 # we run go build to compile the binary
 # executable of our Go program
-RUN go build -o main ./mvc/main
+RUN go build -o main ./mvc
 # Our start command which kicks off
 # our newly created binary executable
 
