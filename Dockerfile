@@ -11,11 +11,12 @@ RUN go version
 ENV GOPATH /go
 
 COPY ./mvc/app /go/src/app
-COPY ./github.com/rafodelmal/go_api/mvc/services /go/src/services
-COPY ./github.com/rafodelmal/go_api/mvc/utils /go/src/utils
+COPY ./mvc/services /go/src/services
+COPY ./mvc/utils /go/src/utils
+COPY ./mvc/domain /go/src/domain
+COPY ./mvc/controllers /go/src/controllers
 COPY ./github.com/stretchr/testify/assert /go/src/stretchr/testify/assert
-COPY ./github.com/rafodelmal/go_api/mvc/domain /go/src/domain
-COPY ./github.com/rafodelmal/go_api/mvc/controllers /go/src/controllers
+
 
 WORKDIR /
 
