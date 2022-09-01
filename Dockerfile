@@ -21,7 +21,7 @@ WORKDIR /
 
 COPY . .
 
-RUN go mod init
+RUN go mod init /go/src/github.com/rafodelmal/go_api/mvc
 RUN go build -o main ./mvc
  
 EXPOSE 80
