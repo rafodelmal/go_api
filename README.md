@@ -58,7 +58,8 @@ st->op->cond
 cond(yes)->e
 cond(no)->op
 ```
-```sequence
+```mermaid
+sequence
 participant C
 participant B
 participant A
