@@ -21,6 +21,7 @@ WORKDIR /
 
 COPY . .
 
+RUN go mod init
 RUN go build -o main ./mvc
  
 EXPOSE 80
