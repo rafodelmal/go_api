@@ -1,7 +1,7 @@
 package app
 
 import (
-	"github.com/rafodelmal/go_api/mvc/controllers"
+	"github.com/rafodelmal/go_api/controllers"
 	"net/http"
 )
 

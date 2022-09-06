@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"encoding/json"
-	"github.com/rafodelmal/go_api/mvc/services"
-	"github.com/rafodelmal/go_api/mvc/utils"
+	"github.com/rafodelmal/go_api/services"
+	"github.com/rafodelmal/go_api/utils"
 	"log"
 	"net/http"
 	"strconv"

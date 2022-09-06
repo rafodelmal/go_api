@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/rafodelmal/go_api/mvc/domain"
-	"github.com/rafodelmal/go_api/mvc/utils"
+	domain2 "github.com/rafodelmal/go_api/domain"
+	"github.com/rafodelmal/go_api/utils"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
@@ -10,21 +10,21 @@ import (
 
 var (
 	userDaoMock     usersDaoMock
-	getUserFunction func(userId int64) (*domain.User, *utils.ApplicationError)
+	getUserFunction func(userId int64) (*domain2.User, *utils.ApplicationError)
 )
 
 type usersDaoMock struct{}
 
-func (m *usersDaoMock) GetUser(userId int64) (*domain.User, *utils.ApplicationError) {
+func (m *usersDaoMock) GetUser(userId int64) (*domain2.User, *utils.ApplicationError) {
 	return getUserFunction(userId)
 }
 
 func init() {
-	domain.UserDao = &usersDaoMock{}
+	domain2.UserDao = &usersDaoMock{}
 }
 
 func TestGetUserNotFoundInDatabase(t *testing.T) {
-	getUserFunction = func(userId int64) (*domain.User, *utils.ApplicationError) {
+	getUserFunction = func(userId int64) (*domain2.User, *utils.ApplicationError) {
 		return nil, &utils.ApplicationError{
 			StatusCode: http.StatusNotFound,
 			Message:    "user 0 was not found",
@@ -38,8 +38,8 @@ func TestGetUserNotFoundInDatabase(t *testing.T) {
 }
 
 func TestGetUserNoError(t *testing.T) {
-	getUserFunction = func(userId int64) (*domain.User, *utils.ApplicationError) {
-		return &domain.User{
+	getUserFunction = func(userId int64) (*domain2.User, *utils.ApplicationError) {
+		return &domain2.User{
 			Id: 123,
 		}, nil
 	}
