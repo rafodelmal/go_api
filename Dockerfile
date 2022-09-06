@@ -12,11 +12,11 @@ RUN go get -d -v ./...
 # Install the package
 RUN go install -v ./...
 
-RUN go build -o main
+RUN go build -o .
 
 # This container exposes port 8080 to the outside world
 EXPOSE 80
 
 
 # Run the executable
-CMD ["./main"]
+CMD ["./go_api"]
