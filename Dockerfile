@@ -23,7 +23,7 @@ COPY . .
 
 RUN go mod init github.com/rafodelmal/go_api/mvc
 RUN go build -o main ./mvc
- 
+
 EXPOSE 80
 
 CMD ["/main"]
