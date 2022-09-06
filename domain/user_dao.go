@@ -2,7 +2,7 @@ package domain
 
 import (
 	"fmt"
-	"github.com/rafodelmal/go_api/mvc/utils"
+	"github.com/rafodelmal/go_api/utils"
 	"log"
 	"net/http"
 )
