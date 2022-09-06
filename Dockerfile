@@ -1,29 +1,19 @@
-FROM golang:alpine
+FROM golang:1.19-alpine
 
-# ENV GO111MODULE=on \
-#    CGO_ENABLED=0 \
-#    GOOS=linux \
-#    GOARCH=amd64
+# Set the Current Working Directory inside the container
+WORKDIR $GOPATH/src/github.com/rafodelmal/go-api
 
-LABEL maintainer="Jose Rafael Arrieta Dominguez"
-RUN go version
-
-ENV GOPATH /go
-
-COPY ./mvc/app /go/src/github.com/rafodelmal/go_api/mvc/app
-COPY ./mvc/services /go/src/github.com/rafodelmal/go_api/mvc/services
-COPY ./mvc/utils /go/src/github.com/rafodelmal/go_api/mvc/utils
-COPY ./mvc/domain /go/src/github.com/rafodelmal/go_api/mvc/domain
-COPY ./mvc/controllers /go/src/github.com/rafodelmal/go_api/mvc/controllers
-
-
-WORKDIR /
-
+# Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY . .
 
-# RUN go mod init github.com/rafodelmal/go_api/mvc
-RUN go build -o main ./mvc
+# Download all the dependencies
+RUN go get -d -v ./...
 
+# Install the package
+RUN go install -v ./...
+
+# This container exposes port 8080 to the outside world
 EXPOSE 80
 
+# Run the executable
 CMD ["/main"]
