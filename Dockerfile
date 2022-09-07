@@ -10,6 +10,12 @@ RUN go mod download
 COPY . .
 # Run the Go build and output binary under hello_go_http
 RUN go build -o /go_api
+# Create a new release build stage
+FROM gcr.io/distroless/base-debian10
+# Set the working directory to the root directory path
+WORKDIR /
+# Copy over the binary built from the previous stage
+COPY --from=builder /go_api /go_api
 # Make sure to expose the port the HTTP server is using
 EXPOSE 80
 # Run the app binary when we run the container
