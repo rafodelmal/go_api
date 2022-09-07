@@ -1,6 +1,6 @@
 # Api Go
 
-This project was develop in GoLand 2020.3 (Jetbrains)
+This project was develop in GoLand 2020.3 (Jetbrains) the first commit, now are in 2022.2.2
 
 ## Prerequsites
 Use Microsoft Terminal and check:
