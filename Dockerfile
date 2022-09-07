@@ -1,22 +1,16 @@
-FROM golang:1.19-alpine
-
-# Set the Current Working Directory inside the container
-WORKDIR $GOPATH/src/github.com/rafodelmal/go-api
-
-# Copy everything from the current directory to the PWD (Present Working Directory) inside the container
+# Create build stage based on buster image
+FROM golang:1.19-buster AS builder
+# Create working directory under /app
+WORKDIR /app
+# Copy over all go config (go.mod, go.sum etc.)
+COPY go.* ./
+# Install any required modules
+RUN go mod download
+# Copy over Go source code
 COPY . .
-
-# Download all the dependencies
-RUN go get -d -v ./...
-
-# Install the package
-RUN go install -v ./...
-
-RUN go build -o .
-
-# This container exposes port 8080 to the outside world
+# Run the Go build and output binary under hello_go_http
+RUN go build -o /go_api
+# Make sure to expose the port the HTTP server is using
 EXPOSE 80
-
-
-# Run the executable
-CMD ["./go_api"]
+# Run the app binary when we run the container
+ENTRYPOINT ["/go_api"]
