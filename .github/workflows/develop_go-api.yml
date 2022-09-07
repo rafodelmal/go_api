@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: commoncontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bb6ef860c3af4f5fb5999fd80437f65d }}/sampleapp:${{ github.sha }}
+        tags: commoncontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bb6ef860c3af4f5fb5999fd80437f65d }}/develop:${{ github.run_number }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'go-api'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_38c7c830c08f46d59753c7db02d40811 }}
-        images: 'commoncontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bb6ef860c3af4f5fb5999fd80437f65d }}/sampleapp:${{ github.sha }}'
+        images: 'commoncontainer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bb6ef860c3af4f5fb5999fd80437f65d }}/develop:${{ github.run_number }}'
