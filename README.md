@@ -1,3 +1,8 @@
+
+[![Build and deploy over ACR (goapiapp) master](https://github.com/rafodelmal/go_api/actions/workflows/main_goapiapp.yml/badge.svg)](https://github.com/rafodelmal/go_api/actions/workflows/main_goapiapp.yml)
+
+[![CI/CD over ACR (go-api) develop](https://github.com/rafodelmal/go_api/actions/workflows/develop_go-api.yml/badge.svg?branch=develop)](https://github.com/rafodelmal/go_api/actions/workflows/develop_go-api.yml)
+
 # Api Go
 
 This project was develop in GoLand 2020.3 (Jetbrains) the first commit, now are in 2022.2.2
